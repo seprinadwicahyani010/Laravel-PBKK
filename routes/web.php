@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,17 +18,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// rute untuk halaman login
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/member', [MemberController::class, 'index']);
+// Mengarahkan ke aksi "index" pada MemberController saat mengakses '/member'. Menampilkan data member.
 
-// rute untuk halaman registrasi
-Route::get('/registrasi', function () {
-    return view('registrasi');
-});
+Route::get('/member/add', [MemberController::class, 'add']);
+// Mengarahkan ke aksi "add" pada MemberController saat mengakses '/member/add'. Menampilkan halaman tambah data member.
 
-// rute untuk halaman dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::post('/member/store', [MemberController::class, 'store']);
+// Mengarahkan ke aksi "store" pada MemberController saat mengirimkan formulir tambah anggota. Menyimpan data baru ke database.
+
+Route::get('/member/{id}/update', [MemberController::class, 'update']);
+// Mengarahkan ke aksi "update" pada MemberController saat mengakses '/member/{id}/update'. Menampilkan halaman edit data member dengan ID tertentu.
+
+Route::put('/member/{id}', [MemberController::class, 'edit']);
+// Mengarahkan ke aksi "edit" pada MemberController saat mengirimkan formulir edit anggota dengan ID tertentu. Mengupdate data member yang ada di database.
+
+Route::get('/member/{id}/delete', [MemberController::class, 'delete']);
+// Mengarahkan ke aksi "delete" pada MemberController saat mengakses '/member/{id}/delete'. Menghapus data dengan ID tertentu dari database.
