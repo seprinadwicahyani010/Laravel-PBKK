@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BukuController;
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('/member', [MemberController::class, 'index']);
@@ -35,3 +37,17 @@ Route::put('/member/{id}', [MemberController::class, 'edit']);
 
 Route::get('/member/{id}/delete', [MemberController::class, 'delete']);
 // Mengarahkan ke aksi "delete" pada MemberController saat mengakses '/member/{id}/delete'. Menghapus data dengan ID tertentu dari database.
+
+Route::get('/genre', [GenreController::class, 'index']);
+Route::get('/genre/add', [GenreController::class, 'add']);
+Route::post('/genre/store', [GenreController::class, 'store']);
+Route::get('/genre/{id}/update', [GenreController::class, 'update']);
+Route::put('/genre/{id}', [GenreController::class, 'edit']);
+Route::get('/genre/{id}/delete', [GenreController::class, 'delete']);
+
+Route::get('/buku', [BukuController::class, 'index']);
+Route::get('/buku/add', [BukuController::class, 'add']);
+Route::post('/buku/store', [BukuController::class, 'store']);
+Route::get('/buku/{id}/update', [BukuController::class, 'update']);
+Route::put('/buku/{id}', [BukuController::class, 'edit']);
+Route::get('/buku/{id}/delete', [BukuController::class, 'delete']);

@@ -8,12 +8,12 @@
 </head>
 <body>
     <div class="sidebar">
-        <h2>Bencoolen Badminton</h2>
+        <h2>Perpustakaan Jaya</h2>
         <hr>
         <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="/member">Data Member</a></li>
-            <li><a href="#">Data Anggota Kursus</a></li>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/buku">Buku</a></li>
+            <li><a href="/genre">Genre</a></li>
             <li><a href="#">Data Penyewaan</a></li>
         </ul>
     </div>
